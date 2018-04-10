@@ -1,0 +1,4 @@
+x number of classes = x number of tables in the database
+
+here in table per sub class hierarchy data will be saved in parent table and then it will be saved in child table.
+also we have mapping key for base class with derived class

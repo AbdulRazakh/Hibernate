@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.abdul.model">
+	<class name="Payment" table="PRODUCTCONCTRETE">
+
+		<id name="paymentId">
+			<generator class="assigned" />
+		</id>
+		<property name="amount"></property>
+		
+		<union-subclass name="CreditCard" table="PRODUCTCONCTRETECreditCard">
+		<property name="creditCard"></property>
+		</union-subclass>
+		
+		
+		<union-subclass name="Cheque" table="PRODUCTCONCTRETECheque">
+		<property name="ChequeType"></property>
+		</union-subclass>
+
+	</class>
+
+
+</hibernate-mapping>

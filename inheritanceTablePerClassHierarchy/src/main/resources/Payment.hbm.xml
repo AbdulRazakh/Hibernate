@@ -1,0 +1,32 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.abdul.model">
+	<class name="Payment" table="Payment">
+
+		<id name="paymentId">
+			<generator class="assigned" />
+		</id>
+		<discriminator column="dcolumn" type="string" length="5" />
+		
+		<property name="amount" />
+
+		<!-- CreditCard Subclass -->
+		
+		
+		<subclass name="CreditCard" discriminator-value="CC">
+			<property name="creditCardType" />
+		</subclass>
+		
+		<!-- Cheque Subclass -->
+		
+		<subclass name="Cheque" discriminator-value="CQ">
+			<property name="chequeType" />
+		</subclass>
+
+	</class>
+
+
+</hibernate-mapping>

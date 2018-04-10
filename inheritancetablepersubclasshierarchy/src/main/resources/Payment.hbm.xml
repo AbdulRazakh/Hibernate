@@ -1,0 +1,32 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.abdul.model">
+	<class name="Payment" table="PAYMENTTABLE">
+
+		<id name="paymentId">
+			<generator class="assigned" />
+		</id>
+		<property name="amount"></property>
+
+
+		<!-- subclass 1 -->
+
+		<joined-subclass name="Cheque" table="CHEQUE">
+			<key column="foreignmapping1"></key>
+			<property name="chequeType"></property>
+		</joined-subclass>
+
+		<!-- subclass 2 -->
+
+		<joined-subclass name="CreditCard" table="CREDITCARD">
+			<key column="foreignmapping2"></key>
+			<property name="creditCardType"></property>
+		</joined-subclass>
+
+	</class>
+
+
+</hibernate-mapping>
